@@ -1,0 +1,46 @@
+page,
+.page,
+.page__bd{
+    height: 100%;
+}
+.page__bd{
+    padding-bottom: 0;
+}
+.weui-tab__content{
+    text-align: left;
+}
+.curriculum-address{
+    border-bottom: 1px solid #f5f5f8;
+}
+.curriculum-address::after{
+      content: " ";
+    display: inline-block;
+    height: 18rpx;
+    width: 18rpx;
+    border-width: 2px 2px 0 0;
+    border-color: #C8C8CD;
+    border-style: solid;
+    -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    position: absolute;
+    top: -2px;
+    top: 50%;
+    margin-top: -4px;
+    right: 30rpx;
+}
+.curriculum-address image{
+    border-radius: 10rpx;
+}
+.have_code{
+    width: 48rpx;
+    height: 48rpx;
+    position: absolute;
+    right: 80rpx;
+}
+.weui-media-box__desc{
+    color: #bdbdbd;
+}
+
+.ng{
+    color:#f85f30;
+}

@@ -1,0 +1,115 @@
+.body {
+  background-color: #F0F0F0;
+  height: 1110rpx;
+  position: relative;
+}
+.u_title {
+  background-image:linear-gradient(-90deg, #ffd842 0%, #ffbb3f 100%);
+  width:750rpx;
+  height:240rpx;
+  overflow: hidden;
+}
+.u_title .u_photo {
+  margin: 34rpx 312rpx 14rpx;
+}
+.u_title .u_photo>image {
+  background:#d8d8d8;
+  border:3px solid #ffdc5a;
+  width:57px;
+  height:57px;
+  border-radius:100%;
+}
+.u_title .u_username {
+  font-family:PingFangSC-Regular;
+  font-size:15px;
+  color:#ffffff;
+  letter-spacing:0;
+  line-height:15px;
+  text-align:center;
+}
+
+.flex-wrp{
+  font-size: 30rpx;
+  color:#666666;
+}
+.u_first_floor{
+    margin-bottom: 20rpx;
+}
+ .u_first_floor .navs,
+.u_floor_sceond .navs,
+#tell {
+  display: flex;
+  background: #fff;
+
+} 
+ .u_first_floor  view.u_floor_foot,
+ .u_floor_sceond  view.u_floor_foot,
+ #tell view.u_floor_foot{
+   line-height: 100rpx;
+ }
+.u_first_floor  view.u_floor_photo,
+ .u_first_floor  view.u_floor_foot,
+ .u_floor_sceond view.u_floor_foot, 
+ .u_floor_sceond view.u_floor_photo,
+ #tell view.u_floor_photo{
+  flex: 1;
+  font-family:PingFangSC-Regular;
+  letter-spacing:0;
+  text-align: right;
+}
+.u_first_floor  .u_floor_name,
+.u_floor_sceond  .u_floor_name,
+#tell .u_floor_name{
+  flex: 5;
+  line-height: 100rpx;
+}
+.first_trim{
+  background:#ccc;
+  width:375px;
+  height:1px;
+}
+
+ .u_floor_foot>image,
+#tell .u_floor_foot>image{
+  width:9px;
+  height:15px;
+  margin: 0 32rpx;
+}
+.u_floor_photo image ,
+#tell .u_floor_phpto image{
+  width:42rpx;
+  height:42rpx;
+  margin:32rpx 20rpx 0 40rpx;
+}
+.callPhone {
+  line-height: 100rpx;
+}
+.u_floor_sceond .call{
+  flex: 3.2;
+}
+#M_box {
+  opacity:0.3;
+  background:#282832;
+  width:750rpx;
+  height:1110rpx;
+  position: absolute;
+  top: 0px;
+}
+#M_box .phone {
+  background:#ffffff;
+  width:750rpx;
+  height:180rpx;
+  position: absolute;
+  bottom: 0px;
+}
+#M_box .closeModel {
+  border-top: 1px solid #ccc;
+  line-height: 90rpx;
+  width: 100%;
+  height: 90rpx;
+}
+#M_box .call ,
+#M_box .closeModel{
+  text-align: center;
+  margin-top: 24rpx;
+}

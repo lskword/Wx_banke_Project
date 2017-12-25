@@ -1,0 +1,386 @@
+.banner{
+  height: 340rpx;
+  overflow: hidden;
+  position: relative;
+}
+.banner text{
+  position: absolute;
+  right: 30rpx;
+  bottom: 12rpx;
+  padding: 2rpx 14rpx;
+  background-color: #000;
+  border-radius: 10rpx;
+  display: block;
+  font-size: 20rpx;
+  color: #fff;
+}
+.main{
+  background-color: #f9f9f9;
+}
+
+ .curriculum{
+  background-color: #f8f8f8;
+}
+.curriculum-name{
+    padding: 20rpx 20rpx 0 20rpx;
+    background-color: #fff;
+}
+.curriculum-title{
+  font-size: 32rpx;
+  color: #262626;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.curriculum-title text:last-child{
+  position: absolute;
+  right: 0;
+  font-size: 28rpx;
+  color: #8e8e93;
+}
+.curriculum-detail{
+  font-size: 12px;
+  padding: 18rpx 0;
+  font-weight: lighter;
+  display: flex;
+  align-items: center;
+}
+.curriculum-address{
+  padding: 12rpx 30rpx;
+  position: relative;
+  background-color: #f9f9f9;
+  padding-right: 100rpx;
+}
+.curriculum-address::after{
+      content: " ";
+    display: inline-block;
+    height: 18rpx;
+    width: 18rpx;
+    border-width: 2px 2px 0 0;
+    border-color: #C8C8CD;
+    border-style: solid;
+    -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    position: absolute;
+    top: -2px;
+    top: 50%;
+    margin-top: -4px;
+    right: 30rpx;
+}
+.curriculum-address-name{
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  padding-left: 30rpx;
+  color: #666;
+}
+.curriculum-address-name::before{
+    content: '';
+    width: 12rpx;
+    height: 12rpx;
+    background-color: #ffbb3f;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 35%;
+}
+.curriculum-address-detail{
+  font-size: 26rpx;
+  padding: 18rpx 0 0 0;
+  color: #b8b8b8;
+} 
+.distance::before{
+    content: '|';
+    position: absolute;
+    left: 0;
+}
+
+.weui-form-preview{
+    margin-bottom: 20rpx;
+    overflow: hidden;
+}
+.weui-form-preview:before{
+    border-top: 0;
+}
+.weui-form-preview:after{
+    border-bottom: 0;
+}
+.weui-form-preview__hd{
+    line-height: 1.5em;
+}
+.weui-form-preview__hd:after{
+    left: 0;
+    border-bottom: 1px solid #f5f5f8;
+}
+.title_lable{
+    color: #262626;
+    font-size: 32rpx;
+    position: relative;
+    padding-left: 30rpx;
+    display: flex;
+    align-items: center;
+}
+.title_lable::before{
+    content: '';
+    width: 10rpx;
+    height: 32rpx;
+    background-color: #ffbb3f;
+    border-radius: 5rpx;
+    position: absolute;
+    left: 0;
+}
+.weui-form-preview__item{
+    line-height: 1.8em;
+}
+.weui-form-preview__label{
+    font-size: 28rpx;
+    color: #b8b8b8;
+}
+.weui-form-preview__value{
+    color: #666;
+}
+
+.teacher image{
+    width: 86rpx;
+    height: 86rpx;
+    border-radius: 50%;
+    border: 1px solid #ebebeb;
+    text-align: center;
+}
+.teacher .first-text{
+    font-size: 28rpx;
+    color: #666;
+    letter-spacing: 2rpx;
+}
+.teacher text{
+    display: block;
+    font-size: 26rpx;
+    color: #b8b8b8;
+    line-height: 38rpx;
+}
+
+.panel__bd_image{
+    border-radius: 50%;
+}
+
+.more{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 86rpx;
+    line-height: 86rpx;
+    text-align: center;
+    background-color: #fff;
+}
+.more text{
+    font-size: 24rpx;
+    color: #b8b8b8;
+    position: relative;
+}
+
+.flex__item_title{
+    font-size: 28rpx;
+    color: #b8b8b8;
+    text-align: center;
+}
+.flex_border_buttom{
+    line-height: 2.4em;
+    border-bottom: 1px solid #f5f5f8;
+}
+.flex_border{
+    line-height: 2.0em;
+    border: 1px solid #f5f5f8;
+    margin-bottom: 20rpx;
+}
+.flex_border_buttom .flex__item_title,.flex_border .flex__item_title{
+    color: #666;
+}
+
+.fixed-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    background-color: #fff;
+    align-items: center;
+    border-top: 1px solid #f0f0f0; 
+    color: #8e8e93;
+    font-size: 24rpx;
+    display: flex;
+}
+.fixed-footer view{
+    text-align: center;
+}
+.fixed-footer view text{
+    font-size: 36rpx;
+    color: #f85f30;
+}
+.fixed-footer .payment{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #f5f5f8;
+    margin-left: 40rpx;
+}
+.fixed-footer .purchase{
+    width: 45%;
+    height: 100%;
+}
+.fixed-footer .purchase button{
+    border-width: 0;
+    height: 100%;
+    border-radius: 0;
+    background-color: #ffcc40;
+    font-size: 30rpx;
+    color: #fff;
+    line-height: 100rpx;
+}
+.fixed-footer .purchase button::after{
+    content: '';
+    border: 0;
+}
+.Consultation{
+  position: absolute;
+  left: 200rpx;
+  bottom: 130rpx;
+  width: 360rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #ffbb3f;
+  border-radius: 8rpx;
+  color: #fff;
+}
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}
+.Consultation view{
+  width: 49%;
+  font-size: 28rpx;
+  float: left;
+}
+.callService{
+  position: relative;
+}
+.callService::before{
+  content: "|";
+  position: absolute;
+  right: 0;
+}
+
+.backTop{
+    position: fixed;
+    right: 50rpx;
+    bottom: 180rpx;
+}
+.showmodel{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.5;
+    overflow: hidden;
+    z-index: 1000;
+}
+.showmodel_select{
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    background-color: #fff;
+}
+.no_border_buttom::after{
+    border-bottom: 0;
+}
+.payPrompt{
+    text-align: left;
+    font-size: 28rpx;
+    color: #ffbb3f;
+}
+.btn_okey button{
+    width: 100%;
+    height: 100rpx;
+    background-color: #ffcc40;
+    color: #fff;
+    border: 0;
+    border-radius: 0;
+    font-size: 30rpx;
+}
+.btn_okey button::after{
+    border: 0;
+    border-radius: 0;
+}
+
+.lesson_payment{
+    padding: 40rpx 30rpx 15rpx 30rpx;
+}
+.lesson_payment_txt .weui-media-box:before{
+    border-top: 0;
+}
+.weui-media-box_text_left{
+    width: 50%;
+    float: left;
+    padding: 20rpx 40rpx 20rpx 0;
+    box-sizing: border-box;
+    text-align: right;
+}
+.weui-media-box_text_right{
+    width: 50%;
+    float: right;
+    padding: 20rpx 0 20rpx 40rpx;
+    box-sizing: border-box;
+    text-align: left;
+}
+.lesson_payment_txt .weui-media-box_text .weui-media-box__title{
+    font-size: 32rpx;
+    color: #ffbb3f;
+}
+.lesson_payment_txt .weui-media-box_text .weui-media-box__desc{
+    font-size: 26rpx;
+    color: #8e8e93;
+}
+.lesson_payment_txt .weui-media-box_text .box__desc_1{
+    padding-top: 20rpx;
+}
+.lesson_payment_txt .weui-media-box_text .box__desc_2{
+    padding-top: 16rpx;
+}
+
+.buy_txt,.goodbuy_txt{
+    margin-bottom: 36rpx;
+}
+.buy_txt .buy_txt_left{
+    width: 30%;
+    float: left;
+    font-size: 32rpx;
+    color: #262626;
+    text-align: left;
+    line-height: 32rpx;
+}
+.buy_txt .buy_txt_right{
+    width: 70%;
+    float: left;
+    font-size: 28rpx;
+    color: #8e8e93;
+    text-align: left;
+    line-height: 40rpx;
+}
+.goodbuy_txt .weui-media-box__title text{
+    padding-left: 20rpx;
+}
+.goodbuy_txt .weui-media-box__desc{
+    padding-left: 30rpx;
+    margin-left: 10rpx;
+    margin-top: 12rpx;
+    line-height: 36rpx;
+    border-left: 1rpx solid #ffd842;
+}

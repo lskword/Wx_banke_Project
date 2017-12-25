@@ -1,0 +1,194 @@
+<view class='body'>
+<!--index.wxml-->
+<view class="swiper-tab">
+    <view  class="swiper-tab-list" data-current="0" bindtap="swichNav">
+      <text class=" {{currentTab==0 ? 'on' : ''}} " data-current="0" bindtap='swichNav'>{{title[0]}}
+      </text>
+    </view>
+    <view class="swiper-tab-list" data-current="1" bindtap="swichNav">
+      <text class="{{currentTab==1 ? 'on' : ''}} " data-current="1" bindtap='swichNav'>{{title[1]}}
+      </text>
+    </view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+    <!-- 进行中 -->
+    <swiper-item>
+      <!-- 模式4 -->
+       <view class='conduct1' wx:for='{{onGoList}}' wx:key= "{{index}}" hidden='{{onGoList === null ? true : false}}'>
+          <navigator url='../../index/orderDetails/orderDetails?orderId={{item.orderId}}'>
+            <view class='header'>
+          <!-- 机构名称 -->
+          <text class='header_left'>{{item.orgName}}</text>
+          <text class='header_right {{item.orderStatus === 1? "overdue" : "payment"}}' >{{item.orderStatus == 1? playStatus[1] : playStatus[0]}}
+          </text>
+        </view>
+        <!-- 课程介绍 -->
+        <view class='content'>
+          <view class='content_left'>
+            <image src='{{item.courseCover}}'></image>
+          </view>
+          <view class='content_right'>
+            <view class='subject'>{{item.courseName}}</view>
+            <!-- <view class='payMent'>分批款：￥{{item.amount}}*{{item.cycleCount}}批</view> -->
+            <view class='userPlay'>分批款合计：¥{{item.amount}}</view>
+          </view>
+        </view>
+        <view class='footer'>
+          <!-- 逾期/剩余时间 -->
+          <view class='footer_left'>
+            <view class='time'>
+              {{item.orderStatus === 1 ? playStatus[2] : playStatus[3]}}
+               {{item.orderStatus === 1  ? item.cycleOverCount + '批' : outPutTime}} 
+            </view>
+          </view>
+          <view class='footer_right'>
+            <!-- 付款按钮 -->
+            <view class='play' catchtap='playMentPlay'>
+              {{item.orderStatus === 1 ? playStatus[4] : playStatus[5]}}
+            </view>
+          </view>
+        </view>
+          </navigator>
+         <view class='tirm'></view>
+      </view>
+      <!-- blank模态框  -->
+      <view hidden='{{onGoList !== null ? true : false}}'> 
+        <view class='imgBox'> 
+          <view class='image_box'><image src='../../../assets/Dataisempty.png'></image></view>
+          <view class='blank_text'>您还没有课程哦～</view>
+        </view>
+      </view>
+      <!--   模式3
+      <view class='conduct1'>
+        <view class='header'>
+          <text class='header_left'>达内教育</text>
+          <text class='header_right'>已逾期</text>
+        </view>
+        <view class='content'>
+          <view class='content_left'>
+            <image src=''></image>
+          </view>
+          <view class='content_right'>
+            <view class='subject'>Java软件编程</view>
+            <view class='payMent'>分批款：￥批</view>
+            <view class='userPlay'>分批款合计：</view>
+          </view>
+        </view>
+        <view class='footer'>
+          <view class='footer_left'>
+            <view class='time'>
+              逾期批次: 共2批
+            </view>
+          </view>
+          <view class='footer_right'>
+            <view class='play'>
+              立即补交
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='tirm'>3</view> 
+      
+      <!-- 模式2 -->
+      <!-- <view class='conduct1'>
+        <view class='header'>
+          <text class='header_left'>达内教育</text>
+          <text class='header_right'>已逾期</text>
+        </view>
+        <view class='content'>
+          <view class='content_left'>
+            <image src=''></image>
+          </view>
+          <view class='content_right'>
+            <view class='subject'>Java软件编程</view>
+            <view class='payMent'>分批款：￥400*10批</view>
+            <view class='userPlay'>第2批分批款：¥400</view>
+          </view>
+        </view>
+        <view class='footer'>
+          <view class='footer_left'>
+            <view class='time'>
+              逾期时间: 2天
+            </view>
+          </view>
+          <view class='footer_right'>
+            <view class='play'>
+              立即补交
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='tirm'>2</view> -->
+      <!-- 模式1 -->
+      <!-- <view class='conduct1'>
+        <view class='header'>
+          <text class='header_left'>达内教育</text>
+          <text class='header_right'>待支付</text>
+        </view>
+        <view class='content'>
+          <view class='content_left'>
+            <image src=''></image>
+          </view>
+          <view class='content_right'>
+            <view class='subject'>Java软件编程</view>
+            <view class='payMent'>分批款：￥400*10批</view>
+            <view class='userPlay'>第2批分批款：¥400</view>
+          </view>
+        </view>
+        <view class='footer'>
+          <view class='footer_left'>
+            <view class='time'>
+              剩余时间：23:45:31
+            </view>
+          </view>
+          <view class='footer_right'>
+            <view class='play'>
+              立即付款
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='tirm'>1</view> -->
+
+    </swiper-item>
+    <!-- 已完成 -->
+    <swiper-item>
+      <view>
+         <view class='conduct1' wx:for='{{completedList}}' wx:key= "{{index}}"  hidden='{{completedList === null ? true : false}}'> 
+                <view class='header'>
+                <!-- 机构名称 -->
+                <text class='header_left'>{{item.orgName}}</text>
+                <view class='header_right payment' >
+                  {{item.orderStatus === 3 ? playStatus[6] : playStatus[7]}}
+                </view>
+              </view>
+              <!-- 课程介绍 -->
+              <view class='content'>
+                <view class='content_left'>
+                  <image src='{{item.courseCover}}'></image>
+                </view>
+                <view class='content_right'>
+                  <view class='subject'>{{item.courseName}}</view>
+                </view>
+              </view>
+              <view class='footer'>
+                <!-- 逾期/剩余时间 -->
+                <view class='footer_left'>
+                  <view class='time'>
+                    分批付进度 {{item.cycleCount+ '/' + item.fishCycleCount}}
+                  </view>
+                </view>
+              </view>
+               <view class='tirm'></view>
+            </view></view>
+            <view hidden='{{completedList !== null ? true : false}}'> 
+        <view class='imgBox'> 
+          <view class='image_box'><image src='../../../assets/Dataisempty.png'></image></view>
+          <view class='blank_text'>您还没有课程哦～</view>
+        </view>
+      </view>
+    </swiper-item>
+
+</swiper>
+</view>
