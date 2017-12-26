@@ -1,0 +1,170 @@
+//获取应用实例
+const app = getApp()
+const url = app.globalData.url
+
+// 获取订单数据
+var order = function(that){
+    wx.request({
+        url: url +"/apiBatach/choosePaymentScheme",
+        data:{
+            courseId: that.data.id,
+            schemeId: that.data.schemeId
+        },
+        success:res=>{
+            that.setData({
+                courseName: res.data.data.courseName,
+                price: res.data.data.price,
+                courseCover: res.data.data.courseCover,
+                firstPayment: res.data.data.firstPayment,
+                batchTime: res.data.data.batchTime,
+                surplusAverPayment: res.data.data.surplusAverPayment,
+                batchCount: res.data.data.batchCount
+            })
+            console.log(res)
+        }
+    })
+}
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    //   学员姓名
+    username:null,
+    //   是否同意协议
+    check:true,
+    // 课程id
+    id:null,
+    // 分批付方案id
+    schemeId: null,
+    // 课程名
+    courseName:null,
+    // 课程价格
+    price:null,
+    // 课程封面
+    courseCover:null,
+    // 首付款描述
+    firstPayment:null,
+    // 分批次数
+    batchTime:null,
+    // 每次分批付款金额
+    surplusAverPayment:null,
+    // 学员电话
+    mobile:null,
+    // 付款批次
+    batchCount:null,
+    // 模态窗
+    isShowToast:false,
+    toastText:null
+  },
+//   温馨提示
+  Prompt:function(){
+      wx.showModal({
+          title: '温馨提示',
+          content: '1.姓名信息用于课程报名、扫码上课等凭证;\r\n2.手机号不可修改,需与您账户下绑定的手机号保持一致,以确保接受课程通知和正常完成扫码上课!',
+          confirmText:"我知道了",
+          showCancel:false
+      })
+  },
+//   是否勾选协议
+  togglecheck:function(){
+      this.setData({
+          check: !this.data.check
+      })
+  },
+//   姓名
+  username:function(e){
+      this.setData({
+          username:e.detail.value
+      })
+  },
+  //   提交订单
+  confirmoder: function () {
+      var that = this
+      if(this.data.username == null){
+        that.setData({
+            isShowToast: true,
+            toastText: "请填写姓名信息"
+        })
+        setTimeout(function(){
+            that.setData({
+                isShowToast: false
+            })
+        },2000)
+      } else if (this.data.check == false){
+          that.setData({
+              isShowToast: true,
+              toastText: "请勾选《伴课分批付协议》"
+          })
+          setTimeout(function () {
+              that.setData({
+                  isShowToast: false
+              })
+          }, 2000)
+      }else{
+          console.log("提交订单")
+      }
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    // this.data.id = options.id
+    // this.data.schemeId = options.schemeId
+    this.data.id = 3
+    this.data.schemeId = 1
+    console.log(this.data.id, this.data.schemeId)
+
+    order(this)
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    
+  }
+})

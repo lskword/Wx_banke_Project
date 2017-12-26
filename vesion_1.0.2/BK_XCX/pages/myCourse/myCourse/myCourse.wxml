@@ -1,0 +1,57 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar" style='border-bottom:0;background-color:#ffcc40; color:#fff;position:fiexd;top:0;'>
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" class="weui-navbar__item" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; bottom:10rpx; width:2.5em; background-color:#fff; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <!--进行中  -->
+                <view class="weui-tab__content" hidden="{{activeIndex != 0}}" wx:if="{{isnull==false}}">
+                    <view class="weui-panel__bd">
+                        <navigator url="/pages/myCourse/code/code?orderId={{item.orderId}}&courseId={{item.courseId}}" class="weui-media-box weui-media-box_appmsg curriculum-address" wx:for="{{courselist}}" wx:key="{{*this}}">
+                            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                                <image class="weui-media-box__thumb" src="{{item.courseImg}}" />
+                            </view>
+                            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg" style='max-width:420rpx;'>
+                                <view class="weui-media-box__title">{{item.courseName}}</view>
+                                <view class="weui-media-box__desc" style='color:b8b8b8;'>{{item.orgName}}</view>
+                                <view class="weui-media-box__desc" style='margin-top:20rpx; font-size:24rpx;' wx:if="{{item.courseStatus==1}}">正常</view>
+                                <view class="weui-media-box__desc ng" style='margin-top:20rpx; font-size:24rpx;' wx:else>已逾期</view>
+                            </view>
+                            <view class='have_code' wx:if="{{item.courseStatus==1}}">
+                                <image class='weui-media-box__thumb' style='border-radius:0;' src='/assets/code.png'></image>
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+                <!--内容为空  -->
+                <view class="weui-tab__content" style='text-align:center;' wx:if="{{isnull==true}}">
+                   <image src='/assets/s_blank.png' style='width:88rpx;height:76rpx;margin-top:352rpx;'></image>
+                   <view style='font-size:28rpx;color:#bdbdbd;margin-top:40rpx;'>您还没有课程哦～</view>
+                   <button style='margin-top:260rpx;width:610rpx;height:76rpx;background-color:#ffcc40;color:#fff;font-size:32rpx;' bindtap='gostudy'>现在去学习</button>
+                </view>
+                <!-- 已完结 -->
+                <view class="weui-tab__content" hidden="{{activeIndex != 1}}" wx:if="{{isnull==false}}">
+                    <view class="weui-panel__bd">
+                        <navigator url="" class="weui-media-box weui-media-box_appmsg curriculum-address" wx:for="{{courselist}}" wx:key="{{*this}}">
+                            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                                <image class="weui-media-box__thumb" src="{{item.courseImg}}" />
+                            </view>
+                            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg" style='max-width:420rpx;'>
+                                <view class="weui-media-box__title">{{item.courseName}}</view>
+                                <view class="weui-media-box__desc" style='color:b8b8b8;'>{{item.orgName}}</view>
+                                <view class="weui-media-box__desc" style='margin-top:20rpx; font-size:24rpx;' wx:if="{{item.courseStatus==3}}">已学完</view>
+                                <view class="weui-media-box__desc" style='margin-top:20rpx; font-size:24rpx;' wx:else>已取消</view>
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,43 @@
+<view class='contain'>
+    <view class='codeinfo border_bottom'>
+        <view class='codeimg'>
+            <image src='/assets/s_code.png'></image>
+        </view>
+        <view class='codetxt'>
+            <view>二维码仅当日有效</view>
+            <view>上课前请向老师出示二维码，记录学习点滴</view>
+        </view>
+    </view>
+    <view class="weui-panel__bd border_bottom dress">
+        <view class="weui-media-box weui-media-box_small-appmsg">
+            <view class="weui-cells weui-cells_in-small-appmsg">
+                <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                    <view class="weui-cell__hd" style='width:20rpx;height:20rpx;border-radius:50%; background-color:#ffcc40;margin-right:20rpx;'></view>
+                    <view class="weui-cell__bd weui-cell_primary">
+                        <view style='font-size:32rpx;color:#262626;'>CMA美国注册管理会计师</view>
+                    </view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </navigator>
+                <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                    <view class="weui-cell__hd"><image src="/assets/location.png" style="width: 20rpx;height: 28rpx;margin-right: 10rpx" /></view>
+                    <view class="weui-cell__bd weui-cell_primary">
+                        <view style='color:#666;font-size:26rpx;'>秦园中路福星惠誉A区21室徐东XX超长地址地址</view>
+                    </view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    
+    <view class="weui-form-preview progress">
+        <view class="weui-form-preview__hd">
+            <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label title_lable" style='font-size:32rpx;color:#262626;'>学习进度</view>
+                <view><text style='color:#b8b8b8;font-size:24rpx;'>了解更多</text><image src='../../../assets/more.png' style='width:12rpx;height:20rpx; margin-left:10rpx;margin-bottom:0rpx;'></image></view>
+            </view>
+        </view>
+        <view class='weui-panel__bd progress_content'>
+            <image src='../../../assets/111.jpg'></image>
+        </view>
+    </view>
+</view>

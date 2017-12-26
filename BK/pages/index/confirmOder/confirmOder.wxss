@@ -1,0 +1,115 @@
+.contain{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9;
+}
+.weui-form-preview{
+    margin-bottom: 20rpx;
+}
+.weui-form-preview::after{
+    border-bottom: 1px solid #eee;
+}
+.weui-form-preview:before{
+    border-top: 0;
+}
+.weui-form-preview__hd::after{
+    left: 0;
+    border-color: #f5f5f8;
+}
+.panel__bd_image{
+    border-radius: 10rpx;
+}
+.weui-media-box__bd{
+    margin-top: -20rpx;
+}
+.payPrompt{
+    text-align: left;
+    font-size: 28rpx;
+    color: #f85f30;
+    line-height: 40rpx;
+}
+.payPrompt text{
+    width: 102rpx;
+}
+.payPrompt input{
+    width: 100%;
+    height: 80rpx;
+    background-color: #f4f4f4;
+    color: #b8b8b8;
+    padding-left: 30rpx;
+}
+.weui-form-preview__label{
+    color: #b8b8b8;
+    font-size: 28rpx;
+}
+.weui-form-preview__value{
+    color: #666;
+
+}
+.weui-form-preview__bd .weui-form-preview__item{
+    line-height: 80rpx;
+}
+.studentinfo::after{
+    border-bottom: 0;
+}
+.agreement{
+    height: 24rpx;
+    line-height: 24rpx;
+    padding: 0 30rpx 30rpx 30rpx;
+    display: flex;
+    align-items: center;
+}
+.agreement icon{
+    display: flex;
+}
+.agreement text{
+    font-size: 24rpx;
+    color: #b8b8b8;
+    margin-left: 10rpx;
+}
+
+.fixed-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    background-color: #fff;
+    align-items: center;
+    border-top: 1px solid #f0f0f0; 
+    color: #8e8e93;
+    font-size: 24rpx;
+    display: flex;
+}
+.fixed-footer view{
+    text-align: center;
+}
+.fixed-footer view text{
+    font-size: 36rpx;
+    color: #f85f30;
+}
+.fixed-footer .payment{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #f5f5f8;
+    margin-left: 40rpx;
+}
+.fixed-footer .purchase{
+    width: 45%;
+    height: 100%;
+}
+.fixed-footer .purchase button{
+    border-width: 0;
+    height: 100%;
+    border-radius: 0;
+    background-color: #ffcc40;
+    font-size: 30rpx;
+    color: #fff;
+    line-height: 100rpx;
+}
+.fixed-footer .purchase button::after{
+    content: '';
+    border: 0;
+}

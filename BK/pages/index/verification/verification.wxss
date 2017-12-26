@@ -1,0 +1,12 @@
+/* pages/verification/verification.wxss */
+
+
+.weui-logo {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    background: transparent url('https://res.wx.qq.com/open/zh_CN/htmledition/res/img/icon/common/favicon371305.ico') no-repeat;
+    background-size: 100%;
+}
+

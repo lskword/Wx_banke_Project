@@ -1,0 +1,97 @@
+/**index.wxss**/
+.swiper{
+    margin-bottom: 26rpx;
+}
+.swiper swiper{
+    height: 280rpx;
+}
+.swiper swiper navigator{
+    height: 100%;
+}
+.swiper .wx-swiper-dots.wx-swiper-dots-horizontal{
+     margin-bottom: 2rpx;
+}
+.swiper .wx-swiper-dot{
+    width:30rpx;
+    display: inline-flex;
+    height: 4rpx;
+    margin-left: 6rpx;
+    justify-content:space-between;
+}
+.swiper .wx-swiper-dot::before{
+    content: '';
+    flex-grow: 1; 
+    background: #666798;
+    border-radius: 8rpx
+}
+.swiper .wx-swiper-dot-active::before{
+    background:#fff;   
+}
+.list-box{
+    background-color: #fff;
+    display: flex;
+    padding: 30rpx;
+    align-items: center;
+    position: relative;
+}
+ .list-box:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 196rpx;
+    right: 0;
+    height: 2rpx;
+    border-top: 1rpx solid #f5f5f8;
+    color: #f5f5f8;
+} 
+.list-box-img{
+    width: 140rpx;
+    height: 140rpx;
+    line-height: 140rpx;
+    margin-right: 30rpx;
+    text-align: center;
+}
+.list-box-img image{
+    width: 100%;
+    border-radius: 12rpx;
+}
+.list-box-text{
+    flex: 1;
+    position: relative;
+}
+.text-title{
+    font-size: 32rpx;
+    color: #262626;
+    margin-top: -10rpx;
+    margin-bottom: 18rpx;
+    letter-spacing: 0;
+}
+.text-school{
+    font-size: 26rpx;
+    color: #b8b8b8;
+    line-height: 24rpx;
+    text-align: left;
+}
+.text-other{
+    margin-top: 30rpx;
+    font-size: 24rpx;
+    color: #8e8e93;
+    line-height: 20rpx;
+    text-align: left;
+    overflow: inherit;
+}
+.money{
+    position: absolute;
+    right: 0;
+    bottom: -16rpx;
+}
+.money text:first-child{
+    font-size: 26rpx;
+    color: #666;
+    text-align: left;
+}
+.money text:last-child{
+    font-size: 36rpx;
+    color: #f85f30;
+    font-weight: bold;
+}

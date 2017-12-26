@@ -1,0 +1,20 @@
+<view class="weui-cells">
+
+    <view class="weui-cell weui-cell_input weui-cell_vcode">
+
+        <view class="weui-cell__bd">
+            <input class="weui-input" type='number' placeholder="请输入手机号" bindinput='phonenum' />
+        </view>
+        <view class="weui-cell__ft">
+            <view style="color:#999" wx:if="{{statu==1}}">获取验证码</view>
+            <view style="color:orange;" wx:elif="{{statu==2}}" bindtap='getVerificationCode'>获取验证码</view>
+            <view wx:else>重新发送<text>{{time}}</text>s</view>
+        </view>
+    </view>
+
+    <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <input class="weui-input" type='number' placeholder="请输入验证码" bindinput='VerificationCode' />
+    </view>
+</view>
+
+<button class="weui-btn" bindtap='onLogin' style="width:80%;background:orange;color:#fff;">登陆</button>

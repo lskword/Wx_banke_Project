@@ -1,0 +1,60 @@
+<view class="contain">
+    <view class="weui-form-preview">
+        <view class="weui-panel__bd">
+            <navigator url="" class="weui-media-box weui-media-box_appmsg">
+                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                    <image class="weui-media-box__thumb panel__bd_image" src="../../../assets/111.jpg" />
+                </view>
+                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                    <view class="weui-media-box__title">CMA美国注册管理会计师</view>
+                    <view class="weui-media-box__desc" style='margin-top:24rpx;'>课程总价：¥4000</view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+    <view class="weui-form-preview">
+        <view class="weui-form-preview__hd" style='padding-top:0;'>
+            <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label title_lable" style='font-size:32rpx;color:#262626;'>课程信息</view>
+            </view>
+            <view class='payPrompt'>第1批分批款支付完成后,每隔7天支付余下批次分批款</view>
+        </view>
+        <view class="weui-form-preview__bd">
+            <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">第1批分批款</view>
+                <view class="weui-form-preview__value">¥500</view>
+            </view>
+            <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">剩余分批款及批次</view>
+                <view class="weui-form-preview__value">¥500*5批</view>
+            </view>
+            <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">付款周期</view>
+                <view class="weui-form-preview__value">6周</view>
+            </view>
+        </view>
+    </view>
+    <view class="weui-form-preview">
+        <view class="weui-form-preview__hd studentinfo" style='padding-top:0;'>
+            <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label title_lable" style='font-size:32rpx;color:#262626;'>学员信息</view>
+                <image src='../../../assets/Notice.png' style='width:30rpx;height:30rpx;'></image>
+            </view>
+            <view class='payPrompt' style='color:#666;'>手机号:15623057555</view>
+            <view class='payPrompt' style='color:#666; display:flex;align-items:center;margin-top:30rpx;'>
+                <text>姓名：</text><input placeholder='请填入真实姓名，以用于报名上课等凭证'></input>
+            </view>
+        </view>
+    </view>
+    <view class='agreement'>
+        <icon type="circle" size="15"></icon><text>确认并同意伴《课分批付协议》</text>
+        <!--选中  -->
+        <!--<icon type="success" size="23" color='#ffc400'></icon>  -->
+    </view>
+     <view class='fixed-footer'>
+        <view class='payment' bindtap='showmodal' style='width:55%; font-size:30rpx;color:#262626;'>第1批分批款：¥400</view>
+        <view class='purchase'>
+            <button type='default'>提交订单</button>
+        </view>
+    </view> 
+</view>

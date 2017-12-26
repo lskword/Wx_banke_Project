@@ -1,0 +1,8 @@
+/* pages/phoneLogin/phoneLogin.wxss */
+
+.weui-cell__ft view:before{
+  
+  color:#ccc;
+  content:'|';
+}
+

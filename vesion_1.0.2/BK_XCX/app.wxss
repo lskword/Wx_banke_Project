@@ -1,0 +1,9 @@
+/**app.wxss**/
+@import "weui.wxss";
+
+image{
+    width: 100%;
+}
+.clear{
+    clear: both;
+}

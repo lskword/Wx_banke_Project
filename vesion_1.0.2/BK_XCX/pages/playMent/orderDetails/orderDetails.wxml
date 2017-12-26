@@ -1,0 +1,317 @@
+<view class='box' hidden='{{!errModel}}'>
+  <!-- /*订单状态 已逾期*/ -->
+  <view class='orderStatus' hidden='{{status === 2 ? false : true}}'>
+    <view class='orderStatus-box'>
+      <view class='orderStatus-box-photo'>
+        <image src='../../../assets/Combined Shape.png'></image>
+      </view>
+      <view class='orderStatus-box-text'>
+        <!-- <view class='one'>订单状态：{{orderStatus[orderDetailsList.orderStatus]}}</view> -->
+        <view class='one'>订单状态：{{orderStatus[status]}}</view>
+        <view class='two'>
+          {{orderDetailsList.overdueNum
+          < 1 ? '逾期时间:' + orderDetailsList.timeLeft + '天' : '逾期批次:共' + orderDetailsList.overdueNum + '批' }} 请尽快补交,否则面临停课处理 </view>
+        </view>
+      </view>
+    </view>
+    <!-- /*订单状态 支付完成*/ -->
+    <view class='orderStatus' hidden='{{status === 3 ? false : true}}'>
+      <view class='orderStatus-box'>
+        <view class='orderStatus-box-photo'>
+          <image src='../../../assets/Combined Shape.png'></image>
+        </view>
+        <view class='orderStatus-box-text'>
+          <!-- <view class='one'>订单状态：{{orderStatus[orderDetailsList.orderStatus]}}</view> -->
+          <view class='one'>订单状态：{{orderStatus[status]}}</view>
+          <view class='two'>恭喜您！完成支付款项</view>
+        </view>
+      </view>
+    </view>
+    <!-- /*订单状态 待支付（已付首款）*/ -->
+    <view class='orderStatus' hidden='{{status === 1 ? false : true}}'>
+      <view class='orderStatus-box'>
+        <view class='orderStatus-box-photo'>
+          <image src='../../../assets/Combined Shape.png'></image>
+        </view>
+        <view class='orderStatus-box-text'>
+          <!-- <view class='one'>订单状态：{{orderStatus[orderDetailsList.orderStatus]}}</view> -->
+          <view class='one'>订单状态：{{orderStatus[status]}}</view>
+          <view class='two'>剩余时间： {{orderDetailsList.timeLeft > 1 ? orderDetailsList.timeLeft + '天' : outPutTime}} {{orderDetailsList.timeLeft > 1 ? "请尽快完成支付哦": '订单进入逾期'}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- /*订单状态 待支付（未付首款）*/ -->
+    <view class='orderStatus' hidden='{{status === 0 ? false : true}}'>
+      <view class='orderStatus-box'>
+        <view class='orderStatus-box-photo'>
+          <image src='../../../assets/Combined Shape.png'></image>
+        </view>
+        <view class='orderStatus-box-text'>
+          <!-- <view class='one'>订单状态：{{orderStatus[orderDetailsList.orderStatus]}}</view> -->
+          <view class='one'>订单状态：{{orderStatus[status]}}</view>
+          <view class='two'>剩余时间：{{outPutTime}} 订单自动关闭</view>
+        </view>
+      </view>
+    </view>
+    <!-- /*订单状态 已取消（超时自动取消）*/ -->
+    <view class='orderStatus' hidden='{{status === 5 ? false : true}}'>
+      <view class='orderStatus-box'>
+        <view class='orderStatus-box-photo'>
+          <image src='../../../assets/Combined Shape.png'></image>
+        </view>
+        <view class='orderStatus-box-text'>
+          <!-- <view class='one'>订单状态：{{orderStatus[orderDetailsList.orderStatus]}}</view> -->
+          <view class='one'>订单状态：{{orderStatus[status]}}</view>
+          <view class='two'>很抱歉，订单支付超时，系统自动关闭</view>
+        </view>
+      </view>
+    </view>
+    <!-- /*订单状态 已取消（手动取消）*/ -->
+    <view class='orderStatus' hidden='{{status === 4 ? false : true}}'>
+      <view class='orderStatus-box'>
+        <view class='orderStatus-box-photo'>
+          <image src='../../../assets/Combined Shape.png'></image>
+        </view>
+        <view class='orderStatus-box-text'>
+          <!-- <view class='one'>订单状态：{{orderStatus[orderDetailsList.orderStatus-1]}}</view> -->
+          <view class='one'>订单状态：{{orderStatus[status]}}</view>
+          <view class='two'>很抱歉，您已于{{orderDetailsList.cancelTime}}取消订单</view>
+        </view>
+      </view>
+    </view>
+    <!-- /机构用户、详情 -->
+    <view class='content'>
+      <view class='content_left'>
+        <image src='{{orderDetailsList.courseImg}}'></image>
+      </view>
+      <view class='content_right'>
+        <view class='subject'>{{orderDetailsList.courseName}}</view>
+        <view class='payMent'>课程总价：￥{{orderDetailsList.courseTotalPrice}}</view>
+      </view>
+    </view>
+    <view class='tirm'></view>
+
+
+    <!-- 分批付的进度 -->
+    <view class='batch_progress_box'>
+      <view class='batch_progress_header' bindtap='reminder'>
+        <view class='batch_progress_header_left'>
+          <text class='pd'></text> 分批付进度: {{orderDetailsList.batchCount}}
+        </view>
+        <view class='batch_progress_header_right'>
+          <image src='../../../assets/question.png'></image>
+        </view>
+      </view>
+      <view class='solid'></view>
+      <!-- 横向滑动状态框 //分批付详情图表展示 -->
+      <view class='process_details'>
+        <scroll-view class="recommend_scroll_x_box" scroll-x="true">
+          <view class="recommend_hot_box" wx:for="{{orderBatchList}}" wx:key="{{index}}">
+            <view>
+              <!-- {{item.orderChildId}}
+        {{item.orderChildDate}}
+        {{item.orderChildStatus}} -->
+            </view>
+            <view class='judging_lines_box' hidden='{{index === orderBatchListNum -1 ? true : false}}'>
+              <text class="judging_lines {{item.orderChildStatus === 0 || item.orderChildStatus === 3? 'gray': ''}}">
+              <text class="judging_lines {{item.orderChildStatus === 1? 'red': ''}}">
+                <text class="judging_lines {{item.orderChildStatus === 2? 'yellow': ''}}">
+                </text>
+              </text>
+              </text>
+            </view>
+            <view class="order_num {{item.orderChildStatus === 0 || item.orderChildStatus === 3? 'gray': ''}}">
+              <view class="order_num {{item.orderChildStatus === 1? 'red': ''}}">
+                <view class="order_num {{item.orderChildStatus === 2? 'yellow': ''}}">
+
+                  {{index+1}}
+                </view>
+              </view>
+            </view>
+            <view class='order_num_date'>
+              <view class='order_num_date_status'>
+                {{orderBatchListStatus[item.orderChildStatus]}}
+              </view>
+              <view class='order_num_date_child'>
+                {{item.orderChildDate}}
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class='tirm'></view>
+    <!-- 分批付方案 -->
+
+    <view class='batch_progress_box'>
+      <view class='batch_progress_header details'>
+        <view class='batch_progress_header_left'>
+          <text class='pd'></text> 分批付方案
+        </view>
+        <view class='clear_float'></view>
+        <view class='payment_cycle'>支付周期: 第1批分批款支付完成后,每隔7天支付余下批次分批款</view>
+      </view>
+      <view class='solid'></view>
+      <view class='process_details'>
+        <view class='floor_one'>
+          <view class='floor_one_left'>第1批分批款应付</view>
+          <view class='floor_one_right'>¥{{orderDetailsList.firstPayment}}</view>
+        </view>
+        <view class='floor_one'>
+          <view class='floor_one_left'>剩余分批款及批次</view>
+          <view class='floor_one_right'>{{orderDetailsList.surplusPayment}}</view>
+        </view>
+        <view class='floor_one'>
+          <view class='floor_one_left'>付款周期</view>
+          <view class='floor_one_right'>{{orderDetailsList.cycleDay}}批</view>
+        </view>
+      </view>
+    </view>
+    <view class='tirm'></view>
+    <!-- 学校信息 -->
+    <view class='batch_progress_box'>
+      <view class='batch_progress_header'>
+        <view class='batch_progress_header_left'>
+          <text class='pd'></text> 学校信息
+        </view>
+      </view>
+      <view class='solid'></view>
+      <view class='batch_progress_header'>
+        <view class='batch_progress_header_left'>
+          <text class='pd'></text> {{orderDetailsList.schooAreaName}}
+        </view>
+      </view>
+      <view class='solid'></view>
+      <view class='batch_progress_header' catchtap='getlocation'>
+        <view class='batch_progress_header_left ' id='address'>
+          <text class='pd'></text> {{orderDetailsList.campusAddress}}
+        </view>
+        <view class='batch_progress_header_right'>
+          <image src='../../../assets/more.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='tirm'></view>
+    <!-- 用户信息 -->
+    <view class='batch_progress_box'>
+      <view class='batch_progress_header'>
+        <view class='batch_progress_header_left'>
+          <text class='pd'></text> 用户信息
+        </view>
+        <view class='clear_float'></view>
+      </view>
+      <view class='solid'></view>
+      <view class='process_details'>
+        <view class='floor_one'>
+          <view class='floor_one_left'>姓名</view>
+          <view class='floor_one_right'>{{orderDetailsList.acctName}}</view>
+        </view>
+        <view class='floor_one'>
+          <view class='floor_one_left'>手机号</view>
+          <view class='floor_one_right'>{{orderDetailsList.acctTel}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='tirm'></view>
+    <!-- 订单信息 -->
+    <view class='batch_progress_box'>
+      <view class='batch_progress_header'>
+        <view class='batch_progress_header_left'>
+          <text class='pd'></text> 订单信息
+        </view>
+        <view id='close_order' hidden='{{status === 2 ? false : true}}' catchtap='cancellationOrder'>
+          取消订单
+        </view>
+        <view class='clear_float'></view>
+      </view>
+      <view class='solid'></view>
+      <view class='process_details'>
+        <view class='floor_one'>
+          <view class='floor_one_left'>下单时间</view>
+          <view class='floor_one_right'>{{orderDetailsList.orderDate}}</view>
+        </view>
+        <view class='floor_one'>
+          <view class='floor_one_left'>订单编号</view>
+          <view class='floor_one_right'>{{orderDetailsList.sn}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='footer'>
+      <view class='notes'>如有任何疑问联系我们</view>
+      <view class='button'>
+        <view class='button_left'>
+          <image src='/assets/zixun@1x.png'></image>
+          <text>在线咨询</text>
+        </view>
+        <view class='button_right'>
+          <image src='/assets/iphone@1x.png'></image>
+          <text catchtap='callModel'>免费咨询</text>
+        </view>
+      </view>
+
+    </view>
+    <!-- 付款按钮 -->
+    <view class='footer_floor_last' hidden='{{orderDetailsList.orderStatus === 3 ? true : false}}'>
+      <view class='left' catchtap='LumpSumPayment'>
+        一次性付款
+      </view>
+      <view class='right' catchtap='ImmediatePayment'>
+        <view class='one'>
+          立即支付￥{{remainingPayment}}
+        </view>
+        <view class='two'>
+          {{orderDetailsList.forthwithDes}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 温馨提示框 -->
+  <view id='reminder_box' hidden='{{reminderModel}}'>
+    <view class='reminder'>
+      <view class='reminder_header'>
+        温馨提示
+      </view>
+      <view class='reminder_content'>
+        <view>{{reminderText[0]}}</view>
+        <view>{{reminderText[1]}}</view>
+      </view>
+      <view class='reminder_footer' catchtap='closeReminderModel'>
+        我知道了
+      </view>
+    </view>
+  </view>
+  <!-- 取消订单模态框 -->
+  <view id='reminder_box' hidden='{{paymentModel}}'>
+    <view class='reminder cancel_order_box'>
+      <view class='reminder_header'>
+        操作确认
+      </view>
+      <view class='reminder_content cancel_order_s'>
+        <view>
+          您确认需要取消订单吗？取消订单后，对应课程也将同步取消，已支付的分批款将不会退回
+        </view>
+      </view>
+      <view class='reminder_footer' catchtap='closeReminderModel'>
+        <text class='determine_payment' catchtap='determinePayment'>确定</text>
+        <text class='cancellation_payment' catchtap='cancellationPayment'>取消</text>
+        <text class='close_float'></text>
+      </view>
+    </view>
+  </view>
+  <!-- blank框 -->
+  <view class='err_model' hidden='{{errModel}}'>
+    <view>数据丢失了^-^!</view>
+    <view class='err_model_text'>请尝试下拉刷新数据</view>
+  </view>
+  <!-- 电话模态框 -->
+  <view id='M_box' wx:if='{{showModel}}' bindtap='closeModel'>
+    <view class='phone'>
+      <view catchtap='call' class='call'>
+        400-444-333
+      </view>
+      <view class='closeModel' catchtap='closeModel'>
+        取消
+      </view>
+    </view>
+  </view>

@@ -1,0 +1,76 @@
+<view class='body'>
+<view class="section">
+  <view class='u_title' >
+    <view class='u_photo'><image src='{{userInfo.avatarUrl}}'></image></view>
+    <view class='u_username'>{{userInfo.nickName}}</view>
+  </view>
+  <view class="flex-wrp" style="height: 300px;flex-direction:column;">
+    <view class='u_first_floor'>
+       <!-- <navigator url='../../index/partialPayment/partialPayment'>  -->
+        <view class='.navs' catchtap='partialPayment'>
+          <view class='u_floor_photo one'>
+          <image src='../../../assets/payment@2x.png'></image>
+        </view>
+        <text class='u_floor_name'>我的分批付</text>
+        <view class='u_floor_foot'>
+         <image src='../../../assets/more.png'></image></view>
+        </view>
+       <!-- </navigator>  -->
+      <view class='first_trim'></view>
+      <view class='.navs' catchtap='finished'>
+       <!-- <navigator url='../../myCourse/finished/finished' >  -->
+        <view class='u_floor_photo two '>
+          <image src='../../../assets/class0.png'></image>
+        </view>
+        <text class='u_floor_name'>我的课程</text>
+        <view class='u_floor_foot'>
+          <image src='../../../assets/more.png'></image></view>
+          </view>
+       <!-- </navigator>  -->
+      <view class='first_trim'></view>
+    </view>
+    <view class='u_floor_sceond'>
+        <navigator url='/pages/user/commonProblem/commonProblem'>  
+       <view class='.navs' catchtap=''>
+        <view class='u_floor_photo three'>
+        <image src='../../../assets/Group 6.png'></image></view>
+        <text class='u_floor_name'>常见问题</text>
+        <view class='u_floor_foot'>
+          <image src='../../../assets/more.png'></image></view>
+          </view>
+        </navigator>  
+      <view class='first_trim'></view>      
+        <view class='.navs' >
+        <view class='u_floor_photo four'>
+        <image src='../../../assets/ser.png'></image></view>
+        <text class='u_floor_name'>在线客服</text>
+        <view class='u_floor_foot'>
+          <image src='../../../assets/more.png'></image></view>
+          </view> 
+      <view class='first_trim'></view>
+       <view id='tell' bindtap='callModel'>
+        <view class='u_floor_photo five'>
+        <image src='../../../assets/iphone.png'></image></view>
+        <text class='u_floor_name call'>致电咨询</text>
+        <view class='callPhone'>400-444-333</view>
+        <view class='u_floor_foot tellPhone'>
+          <image src='../../../assets/more.png'></image></view>
+        </view>
+        <view id='M_box' wx:if='{{showModel}}' bindtap='closeModel'>
+          <view class='phone'>
+            <view catchtap='call' class='call'>
+              400-444-333
+            </view>
+            <view class='closeModel' catchtap='closeModel'>
+              取消
+            </view>
+          </view>
+        </view>
+        
+      <view class='first_trim'></view>
+    </view>
+    </view>
+  </view>
+</view>
+
+

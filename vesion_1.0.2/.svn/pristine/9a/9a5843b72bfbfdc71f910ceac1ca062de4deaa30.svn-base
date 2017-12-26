@@ -1,0 +1,15 @@
+<!--pages/verification/verification.wxml-->
+<view style='text-align:center;'>
+  <image class="weui-article__img" src="/assets/logo.png" mode="aspectFit" style="height: 110rpx;width:110rpx;margin-top:180rpx;" />
+  <view style='font-size:30rpx;color:#262626;'>分批付  上好课</view>
+</view>
+<view class="button-sp-area" style="margin-top:150rpx;">
+  <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="weui-btn" type="primary" style="width:85%; font-size:30rpx; background-color:#01B90C;">
+    微信用户免密码登陆</button>
+</view>
+
+<view class="weui-footer" style="margin-top:40rpx;">
+  <view class="weui-footer__links">
+    <navigator url="/pages/phoneLogin/phoneLogin" class="weui-footer__link" style='color:#955900;letter-spacing:2rpx;'>手机号登陆/注册</navigator>
+  </view>
+</view>

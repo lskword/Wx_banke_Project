@@ -1,0 +1,503 @@
+<!-- <scroll-view scroll-y="true" bindscroll="scroll" scroll-top="{{scrollTop}}" bindscrolltoupper="upper" bindscrolltolower="lower" style='height:100%;'> -->
+    <view class='banner'>
+        <image background-size="cover" src='{{ courseImg[0].imgUrl }}'></image>
+        <text>{{ courseImg.length }}张</text>
+    </view>
+    <view class='main'>
+        <view class='curriculum'>
+            <view class='curriculum-name'>
+                <view class='curriculum-title'>
+                    <image src='/assets/icon-pay.png' style='width:60rpx; height:32rpx; margin-right:10rpx;'></image>
+                    <text style='max-width:65%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;'>{{courseName}}</text>
+                    <text>{{studyCount}}人学习过</text>
+                </view>
+                <view class='curriculum-detail'>
+                    <image src='/assets/icon-group.png' style='width:24rpx; height:24rpx; margin-right:10rpx;'></image>
+                    <text style='margin-right:50rpx;'>0息分批</text>
+                    <image src='/assets/icon-group.png' style='width:24rpx; height:24rpx; margin-right:10rpx;'></image>
+                    <text>边付边学</text>
+                </view>
+            </view>
+            <view class='curriculum-address' bindtap='getlocation'>
+                <view class='curriculum-address-name'>
+                    <text>{{campusAddress}}</text>
+                </view>
+                <view class='curriculum-address-detail'>
+                    <text style='margin-right:20rpx;'>{{schoolAreaName}}</text>
+                    <text class='distance' style='padding-left:20rpx;position:relative;' wx:if="{{campusDistanceDes!=null}}">距您{{campusDistanceDes}}m</text>
+                </view>
+            </view>
+        </view>
+        <!--课程信息A  -->
+        <view class="weui-form-preview" wx:if="{{courseType==1}}">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label title_lable" style='font-size:32rpx;color:#262626;'>课程信息</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">适合人群</view>
+                    <view class="weui-form-preview__value">{{forTheCrowd}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">学习周期</view>
+                    <view class="weui-form-preview__value">{{studyCycle}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">课时总计</view>
+                    <view class="weui-form-preview__value">{{courseHour}}课时</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">课程有效期</view>
+                    <view class="weui-form-preview__value">付款后1年内</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">课程总价</view>
+                    <view class="weui-form-preview__value">￥40000</view>
+                </view>
+            </view>
+        </view>
+        <!--课程信息B  -->
+        <view class="weui-form-preview" wx:elif="{{courseType==1}}">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label title_lable" style='font-size:32rpx;color:#262626;'>课程信息</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">适合人群</view>
+                    <view class="weui-form-preview__value">成年人，青少年</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">学习周期</view>
+                    <view class="weui-form-preview__value">10周</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">科目总计</view>
+                    <view class="weui-form-preview__value">20课时</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">课程有效期</view>
+                    <view class="weui-form-preview__value">付款后1年内</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">课程总价</view>
+                    <view class="weui-form-preview__value">￥40000</view>
+                </view>
+            </view>
+        </view>
+        <!--课程信息C  -->
+        <view class="weui-form-preview" wx:else>
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label title_lable" style='font-size:32rpx;color:#262626;'>课程信息</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">适合人群</view>
+                    <view class="weui-form-preview__value">成年人，青少年</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">学习周期</view>
+                    <view class="weui-form-preview__value">10周</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">课程有效期</view>
+                    <view class="weui-form-preview__value">付款后1年内</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">课程总价</view>
+                    <view class="weui-form-preview__value">￥40000</view>
+                </view>
+            </view>
+        </view>
+        <!--授课老师  -->
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label title_lable" style='font-size:32rpx;color:#262626;'>授课老师</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd weui-flex" style='text-align:center;'>
+                <view class='weui-flex__item teacher'>
+                    <image src='../../../assets/111.jpg'></image>
+                    <text class='first-text'>姜晓霞</text>
+                    <text>钢琴</text>
+                    <text>8年教龄</text>
+                </view>
+                <view class='weui-flex__item teacher'>
+                    <image src='../../../assets/111.jpg'></image>
+                    <text class='first-text'>姜晓霞</text>
+                    <text>钢琴</text>
+                    <text>8年教龄</text>
+                </view>
+                <view class='weui-flex__item teacher'>
+                    <image src='../../../assets/111.jpg'></image>
+                    <text class='first-text'>姜晓霞</text>
+                    <text>钢琴</text>
+                    <text>8年教龄</text>
+                </view>
+                <view class='weui-flex__item teacher'>
+                    <image src='../../../assets/111.jpg'></image>
+                    <text class='first-text'>姜晓霞</text>
+                    <text>钢琴</text>
+                    <text>8年教龄</text>
+                </view>
+            </view>
+        </view>
+        <!--品牌机构  -->
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label title_lable" style='font-size:32rpx;color:#262626;'>品牌机构</view>
+                </view>
+            </view>
+            <view class="weui-panel__bd">
+                <navigator url="" class="weui-media-box weui-media-box_appmsg">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb panel__bd_image" src="../../../assets/111.jpg" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">CANON HALL成人钢琴俱乐部</view>
+                        <view class="weui-media-box__desc">1家分校区</view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+        <!--课程介绍  -->
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label title_lable" style='font-size:32rpx;color:#262626;'>课程介绍</view>
+                </view>
+            </view>
+            <view class="weui-panel__bd" style='height:1000rpx; position:relative'>
+                <image src='../../../assets/111.jpg'></image>
+                <image src='../../../assets/111.jpg'></image>
+                <image src='../../../assets/111.jpg'></image>
+                <view class='more' bindtap='loadmore'>
+                    <text>查看更多</text>
+                    <image src='../../../assets/icon_buttom.png' style='width:20rpx;height:12rpx; margin-left:10rpx;margin-bottom:4rpx;'></image>
+                </view>
+            </view>
+        </view>
+        <!--好课分批付  -->
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label title_lable" style='font-size:32rpx;color:#262626;'>好课分批付</view>
+                    <view>
+                        <text style='color:#b8b8b8;font-size:24rpx;'>了解更多</text>
+                        <image src='/assets/more.png' style='width:12rpx;height:20rpx; margin-left:10rpx;margin-bottom:0rpx;'></image>
+                    </view>
+                </view>
+            </view>
+            <view class='weui-panel__bd'>
+                <view class='lesson_payment'>
+                    <view style='text-align:center; height:70rpx;'>
+                        <image src='/assets/Rectangle.png' style='width:530rpx;height:70rpx;position:relative;font-size:30rpx;color:#fff;'>
+                            <text style='position:absolute; left:40rpx;top:14rpx;'>分批付上好课</text>
+                            <text style='position:absolute; right:40rpx;top:14rpx;'>付全款才能上课</text>
+                        </image>
+                    </view>
+                    <view class='lesson_payment_txt'>
+                        <view class='weui-media-box weui-media-box_text weui-media-box_text_left'>
+                            <view class='weui-media-box__title'>边学边付</view>
+                            <view class='weui-media-box__desc box__desc_1'>支付第一批学费</view>
+                            <view class='weui-media-box__desc box__desc_2'>先轻松上课</view>
+                        </view>
+                        <view class='weui-media-box weui-media-box_text weui-media-box_text_right'>
+                            <view class='weui-media-box__title'>高额全款</view>
+                            <view class='weui-media-box__desc box__desc_1'>一次性交付全款</view>
+                            <view class='weui-media-box__desc box__desc_2'>学费压力大</view>
+                        </view>
+                        <view class='clear'></view>
+                    </view>
+                    <view class='lesson_payment_txt'>
+                        <view class='weui-media-box weui-media-box_text weui-media-box_text_left'>
+                            <view class='weui-media-box__title'>分批付款</view>
+                            <view class='weui-media-box__desc box__desc_1'>分批支付学费</view>
+                            <view class='weui-media-box__desc box__desc_2'>课程是否继续？自己做主</view>
+                        </view>
+                        <view class='weui-media-box weui-media-box_text weui-media-box_text_right'>
+                            <view class='weui-media-box__title'>一次性付款</view>
+                            <view class='weui-media-box__desc box__desc_1'>一次性交付全款</view>
+                            <view class='weui-media-box__desc box__desc_2'>课程质量无从判断</view>
+                        </view>
+                        <view class='clear'></view>
+                    </view>
+                    <view class='lesson_payment_txt'>
+                        <view class='weui-media-box weui-media-box_text weui-media-box_text_left'>
+                            <view class='weui-media-box__title'>省时省心</view>
+                            <view class='weui-media-box__desc box__desc_1'>学校\机构对比</view>
+                            <view class='weui-media-box__desc box__desc_2'>线上咨询轻松办理</view>
+                        </view>
+                        <view class='weui-media-box weui-media-box_text weui-media-box_text_right'>
+                            <view class='weui-media-box__title'>费时费力</view>
+                            <view class='weui-media-box__desc box__desc_1'>实地考察、决策成本大</view>
+                            <view class='weui-media-box__desc box__desc_2'>售后无保障</view>
+                        </view>
+                        <view class='clear'></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!--分批付方案  -->
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label title_lable" style='font-size:32rpx;color:#262626;'>分批付方案</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class='weui-flex'>
+                    <view class='weui-flex__item flex__item_title'>第一批分批款</view>
+                    <view class='weui-flex__item flex__item_title'>第一批分批款</view>
+                    <view class='weui-flex__item flex__item_title'>第一批分批款</view>
+                </view>
+                <view class='weui-flex flex_border_buttom'>
+                    <view class='weui-flex__item flex__item_title'>¥400</view>
+                    <view class='weui-flex__item flex__item_title'>¥400*9批</view>
+                    <view class='weui-flex__item flex__item_title'>10周</view>
+                </view>
+                <view class='weui-flex flex_border_buttom'>
+                    <view class='weui-flex__item flex__item_title'>¥400</view>
+                    <view class='weui-flex__item flex__item_title'>¥400*9批</view>
+                    <view class='weui-flex__item flex__item_title'>10周</view>
+                </view>
+                <view class='weui-flex flex_border_buttom'>
+                    <view class='weui-flex__item flex__item_title'>¥400</view>
+                    <view class='weui-flex__item flex__item_title'>¥400*9批</view>
+                    <view class='weui-flex__item flex__item_title'>10周</view>
+                </view>
+                <view class='weui-flex flex_border_buttom'>
+                    <view class='weui-flex__item flex__item_title'>¥400</view>
+                    <view class='weui-flex__item flex__item_title'>¥400*9批</view>
+                    <view class='weui-flex__item flex__item_title'>10周</view>
+                </view>
+            </view>
+        </view>
+        <!--购买须知A  -->
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label title_lable" style='font-size:32rpx;color:#262626;'>购买须知</view>
+                </view>
+            </view>
+            <view class='weui-panel__bd' style='padding:30rpx; padding-bottom:0;'>
+                <view class='buy_txt'>
+                    <view class='buy_txt_left'>分批付时间</view>
+                    <view class="buy_txt_right">每次分批支付时间节点分别为您支付第一批分批款当天后的第7天，第14天，第21天，第28天... 即: 以7天为间隔周期的时间节点之前完成每批分批款的支付)</view>
+                    <view class='clear'></view>
+                </view>
+                <view class='buy_txt'>
+                    <view class='buy_txt_left'>到校时间</view>
+                    <view class="buy_txt_right">您完成首付款后,平台会主动联系您后续上课安排。</view>
+                    <view class='clear'></view>
+                </view>
+                <view class='buy_txt'>
+                    <view class='buy_txt_left'>课程预期</view>
+                    <view class="buy_txt_right">当您超过了分批款支付时间节点后,您的课程会面临停课处理,所以请您按时支付每次分批款哦</view>
+                    <view class='clear'></view>
+                </view>
+            </view>
+        </view>
+        <!--购买须知B  -->
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label title_lable" style='font-size:32rpx;color:#262626;'>购买须知</view>
+                </view>
+            </view>
+            <view class='weui-panel__bd' style='padding:30rpx; padding-bottom:0;'>
+                <view class='buy_txt'>
+                    <view class='buy_txt_left'>分批付时间</view>
+                    <view class="buy_txt_right">每次分批支付时间节点分别为您支付第一批分批款当天后的第7天，第14天，第21天，第28天... 即: 以7天为间隔周期的时间节点之前完成每批分批款的支付)</view>
+                    <view class='clear'></view>
+                </view>
+                <view class='buy_txt'>
+                    <view class='buy_txt_left'>到校时间</view>
+                    <view class="buy_txt_right">您完成首付款后,平台会主动联系您后续上课安排。</view>
+                    <view class='clear'></view>
+                </view>
+                <view class='buy_txt'>
+                    <view class='buy_txt_left'>课程预期</view>
+                    <view class="buy_txt_right">当您超过了分批款支付时间节点后,您的课程会面临停课处理,所以请您按时支付每次分批款哦</view>
+                    <view class='clear'></view>
+                </view>
+                <view class='buy_txt'>
+                    <view class='buy_txt_left'>科目核销</view>
+                    <view class="buy_txt_right">当您成功通过每次科目考试后,请将您的课程二维码出示给教练或机构人员扫码，核销课时，以确认继续参加下一科目训练</view>
+                    <view class='clear'></view>
+                </view>
+            </view>
+        </view>
+        <!--购买须知C  -->
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label title_lable" style='font-size:32rpx;color:#262626;'>购买须知</view>
+                </view>
+            </view>
+            <view class='weui-panel__bd' style='padding:30rpx; padding-bottom:0;'>
+                <view class='buy_txt'>
+                    <view class='buy_txt_left'>分批付时间</view>
+                    <view class="buy_txt_right">每次分批支付时间节点分别为您支付第一批分批款当天后的第7天，第14天，第21天，第28天... 即: 以7天为间隔周期的时间节点之前完成每批分批款的支付)</view>
+                    <view class='clear'></view>
+                </view>
+                <view class='buy_txt'>
+                    <view class='buy_txt_left'>到校时间</view>
+                    <view class="buy_txt_right">您完成首付款后,平台会主动联系您后续上课安排。</view>
+                    <view class='clear'></view>
+                </view>
+                <view class='buy_txt'>
+                    <view class='buy_txt_left'>课程预期</view>
+                    <view class="buy_txt_right">当您成功支付第一批分批款后，到店出示二维码，健身房工作人员扫码后，开始起算您的课程的起始时间，即开卡时间。</view>
+                    <view class='clear'></view>
+                </view>
+            </view>
+        </view>
+        <!--简单三步，分批付好课A  -->
+        <view class="weui-form-preview" style='margin-bottom:100rpx;'>
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label title_lable" style='font-size:32rpx;color:#262626;'>简单三步，分批付好课</view>
+                </view>
+            </view>
+            <view class='weui-panel__bd' style='padding:30rpx; padding-bottom:0;'>
+                <view class='goodbuy_txt'>
+                    <view class='weui-media-box__title'><icon style='width:20rpx;height:20rpx;border-radius:50%;background-color:#ffd842;'></icon><text>平台选课，实地考察</text></view>
+                    <view class='weui-media-box__desc'>通过伴课平台海量课程、学校、机构数据对比,贴心的在线客服咨询,帮助您了解课程需求和疑惑。</view>
+                </view>
+                <view class='goodbuy_txt'>
+                    <view class='weui-media-box__title'><icon style='width:20rpx;height:20rpx;border-radius:50%;background-color:#ffd842;'></icon><text>选择分批付方案， 线上付款</text></view>
+                    <view class='weui-media-box__desc'>选择适合您的分批付方案: 支付第一批分批款后,即可报名上课! 课程学到哪,学费交到哪,课程是否继续完全自己做主!</view>
+                </view>
+                <view class='goodbuy_txt'>
+                    <view class='weui-media-box__title'><icon style='width:20rpx;height:20rpx;border-radius:50%;background-color:#ffd842;'></icon><text>开始上课，领学费</text></view>
+                    <view class='weui-media-box__desc'>收到伴课平台通知,按照约定日期及课程二维码,到校扫码上课。</view>
+                </view>
+            </view>
+        </view>
+        <!--简单三步，分批付好课B  -->
+        <view class="weui-form-preview" style='margin-bottom:100rpx;'>
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label title_lable" style='font-size:32rpx;color:#262626;'>简单三步，分批付好课</view>
+                </view>
+            </view>
+            <view class='weui-panel__bd' style='padding:30rpx; padding-bottom:0;'>
+                <view class='goodbuy_txt'>
+                    <view class='weui-media-box__title'><icon style='width:20rpx;height:20rpx;border-radius:50%;background-color:#ffd842;'></icon><text>平台选课，实地考察</text></view>
+                    <view class='weui-media-box__desc'>通过伴课平台海量课程、学校、机构数据对比,贴心的在线客服咨询,帮助您了解课程需求和疑惑。</view>
+                </view>
+                <view class='goodbuy_txt'>
+                    <view class='weui-media-box__title'><icon style='width:20rpx;height:20rpx;border-radius:50%;background-color:#ffd842;'></icon><text>选择分批付方案， 线上付款</text></view>
+                    <view class='weui-media-box__desc'>选择适合您的分批付方案: 支付第一批分批款后,即可报名上课! 课程学到哪,学费交到哪,课程是否继续完全自己做主!</view>
+                </view>
+                <view class='goodbuy_txt'>
+                    <view class='weui-media-box__title'><icon style='width:20rpx;height:20rpx;border-radius:50%;background-color:#ffd842;'></icon><text>开始上课，领学费</text></view>
+                    <view class='weui-media-box__desc'>收到伴课平台通知,按照约定日期参加训练，扫码核销每门科目课时。</view>
+                </view>
+            </view>
+        </view>
+        <!--简单三步，分批付好课C  -->
+        <view class="weui-form-preview" style='margin-bottom:100rpx;'>
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label title_lable" style='font-size:32rpx;color:#262626;'>简单三步，分批付好课</view>
+                </view>
+            </view>
+            <view class='weui-panel__bd' style='padding:30rpx; padding-bottom:0;'>
+                <view class='goodbuy_txt'>
+                    <view class='weui-media-box__title'><icon style='width:20rpx;height:20rpx;border-radius:50%;background-color:#ffd842;'></icon><text>平台选课，实地考察</text></view>
+                    <view class='weui-media-box__desc'>通过伴课平台海量课程、学校、机构数据对比,贴心的在线客服咨询,帮助您了解课程需求和疑惑。</view>
+                </view>
+                <view class='goodbuy_txt'>
+                    <view class='weui-media-box__title'><icon style='width:20rpx;height:20rpx;border-radius:50%;background-color:#ffd842;'></icon><text>选择分批付方案， 线上付款</text></view>
+                    <view class='weui-media-box__desc'>选择适合您的分批付方案: 支付第一批分批款后,即可报名上课! 课程学到哪,学费交到哪,课程是否继续完全自己做主!</view>
+                </view>
+                <view class='goodbuy_txt'>
+                    <view class='weui-media-box__title'><icon style='width:20rpx;height:20rpx;border-radius:50%;background-color:#ffd842;'></icon><text>开始上课，领学费</text></view>
+                    <view class='weui-media-box__desc'>收到伴课平台通知,按照约定日期开始学习，扫码起算您的开卡时间。</view>
+                </view>
+            </view>
+        </view>
+        <!--底部  -->
+        <view class='fixed-footer'>
+            <view class='payment' bindtap='showmodal'>分批付：
+                <text style='margin-right:6rpx;'>¥400</text>起</view>
+            <view bindtap='toggleConsultation'>
+                <image src='../../../assets/Consultation.png' style='width:36rpx;height:36rpx; display:block; margin:0 30rpx;'></image>
+                <view>咨询</view>
+            </view>
+            <view class='purchase'>
+                <button type='default'>立即购买</button>
+            </view>
+            <view class='Consultation {{showview?"hide":"show"}}'>
+                <view class='callService'>致电客服</view>
+                <view class='callOnline'>在线咨询</view>
+            </view>
+        </view>
+        <!--返回顶部  -->
+        <view class='backTop' wx:if="{{ floorstatus }}" bindtap='goTop'>
+            <image src='../../../assets/top.png' style='width:70rpx;height:70rpx;'></image>
+        </view>
+        <!--选择方案  -->
+        <view>
+            <view class='showmodel' bindtap='hidemodal' wx:if="{{showModalStatus}}"></view>
+            <view class='showmodel_select' animation="{{animationData}}" wx:if="{{showModalStatus}}">
+                <view class='curriculum_name' style='padding:30rpx 40rpx 0 40rpx; border-bottom:1px solid #f5f5f8;'>
+                    <view class='curriculum_title' style='position:relative;'>
+                        <text>成人钢琴私人定制课</text>
+                        <image bindtap='hidemodal' src='../../../assets/icon-close.png' style='width:28rpx;height:28rpx;position:absolute;right:0;top:16rpx;'></image>
+                    </view>
+                    <view class='curriculum-detail' style='font-size:26rpx; color:#8e8e93;'>
+                        <text>课程总价：¥4000</text>
+                    </view>
+                </view>
+                <view class="weui-form-preview">
+                    <view class="weui-form-preview__hd no_border_buttom" style='padding-top:0; padding-bottom:0;'>
+                        <view class="weui-form-preview__item">
+                            <view class="weui-form-preview__label title_lable" style='font-size:32rpx;color:#262626;'>分批付方案</view>
+                        </view>
+                        <view class='payPrompt'>付款提示: 第1批分批款支付完成后,每隔7天支付余下批次分批款</view>
+                    </view>
+                    <view class="weui-form-preview__bd">
+                        <view class='weui-flex' style='margin-bottom:30rpx;'>
+                            <view class='weui-flex__item flex__item_title' style='color:#8e8e93;'>第一批分批款</view>
+                            <view class='weui-flex__item flex__item_title' style='color:#8e8e93;'>第一批分批款</view>
+                            <view class='weui-flex__item flex__item_title' style='color:#8e8e93;'>第一批分批款</view>
+                        </view>
+                        <view class='weui-flex flex_border'>
+                            <view class='weui-flex__item flex__item_title'>¥400</view>
+                            <view class='weui-flex__item flex__item_title'>¥400*9批</view>
+                            <view class='weui-flex__item flex__item_title'>10周</view>
+                        </view>
+                        <view class='weui-flex flex_border'>
+                            <view class='weui-flex__item flex__item_title'>¥400</view>
+                            <view class='weui-flex__item flex__item_title'>¥400*9批</view>
+                            <view class='weui-flex__item flex__item_title'>10周</view>
+                        </view>
+                        <view class='weui-flex flex_border'>
+                            <view class='weui-flex__item flex__item_title'>¥400</view>
+                            <view class='weui-flex__item flex__item_title'>¥400*9批</view>
+                            <view class='weui-flex__item flex__item_title'>10周</view>
+                        </view>
+                        <view class='weui-flex flex_border'>
+                            <view class='weui-flex__item flex__item_title'>¥400</view>
+                            <view class='weui-flex__item flex__item_title'>¥400*9批</view>
+                            <view class='weui-flex__item flex__item_title'>10周</view>
+                        </view>
+                    </view>
+                </view>
+                <view class='btn_okey' bindtap='hidemodal'>
+                    <button>确定</button>
+                </view>
+            </view>
+        </view>
+    </view>
+<!-- </scroll-view> -->

@@ -1,0 +1,54 @@
+{
+  "pages":[
+    "pages/index/index/index",
+    "pages/myCourse/code/code",
+    "pages/myCourse/myCourse/myCourse",
+    "pages/index/phoneLogin/phoneLogin",
+    "pages/index/verification/verification",
+    "pages/index/confirmOder/confirmOder",
+    "pages/index/detail/detail",
+    "pages/logs/logs",
+    "pages/user/commonProblem/commonProblem",
+    "pages/playMent/orderDetails/orderDetails",
+    "pages/playMent/partialPayment/partialPayment",
+    "pages/user/user/user",
+    "pages/myCourse/finished/finished"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#FFCC40",
+    "navigationBarTitleText": "伴课",
+    "navigationBarTextStyle":"#fff",
+    "enablePullDownRefresh":true
+  },
+  "tabBar":{
+      "color":"#666",
+      "selectedColor":"#666",
+      "backgroundColor":"#fff",
+      "list":[{
+          "pagePath":"pages/index/index/index",
+          "iconPath":"assets/index.png",
+          "selectedIconPath":"assets/s_index.png",
+        "text": "首页"
+      },
+      {
+          "pagePath":"pages/playMent/partialPayment/partialPayment",
+        "iconPath": "assets/Payment.png",
+        "selectedIconPath": "assets/s_Payment.png",
+            "text": "分批付"
+      },
+    {
+        "pagePath": "pages/myCourse/myCourse/myCourse",
+        "iconPath": "assets/Curriculum.png",
+        "selectedIconPath": "assets/s_Curriculum.png",
+        "text": "课程"
+    },
+    {
+        "pagePath": "pages/user/user/user",
+        "iconPath": "assets/mine.png",
+        "selectedIconPath": "assets/s_mine.png",
+        "text": "我的"
+    }
+      ]
+  }
+}

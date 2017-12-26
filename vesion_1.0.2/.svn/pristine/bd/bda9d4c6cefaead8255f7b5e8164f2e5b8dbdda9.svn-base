@@ -1,0 +1,15 @@
+<!--pages/verification/verification.wxml-->
+<view>
+  <image class="weui-article__img" src="/assets/111.jpg" mode="aspectFit" style="height: 180px;width:100%;" />
+</view>
+<view class="button-sp-area" style="margin-top:30px;">
+  <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="weui-btn" type="primary" style="width:80%;">
+    <i class="weui-logo"></i>
+    微信用户免密码登陆</button>
+</view>
+
+<view class="weui-footer" style="margin-top:15px;">
+  <view class="weui-footer__links">
+    <navigator url="/pages/phoneLogin/phoneLogin" class="weui-footer__link">手机号快捷登陆/注册</navigator>
+  </view>
+</view>

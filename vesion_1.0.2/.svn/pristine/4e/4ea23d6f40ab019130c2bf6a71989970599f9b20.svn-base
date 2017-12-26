@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<!-- <scroll-view scroll-y style="height:100%;position:fixed;" bindscrolltoupper="topload" lower-threshold="0" bindscrolltolower="loadmore" bindscroll="scroll" scroll-top="{{scrollTop}}"> -->
+    <view class='swiper'>
+        <swiper indicator-dots="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular='true'>
+            <block wx:for="{{imgUrls}}" wx:key="{{imgUrls}}">
+                <swiper-item>
+                    <navigator url='{{linkUrl}}'>
+                        <image src='{{item}}' style='width:100%;height:280rpx;'></image>
+                    </navigator>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <block wx:for="{{mylist}}" wx:key="{{mylist}}">
+        <template is="myItem" data="{{item}}"/>
+    </block>
+<!-- </scroll-view> -->
+<template name="myItem">
+    <navigator url="/pages/index/detail/detail?id={{item.id}}" class='weui-media-box weui-media-box_appmsg list-box' hover-class='weui-cell_active'>
+        <view class='weui-media-box__hd weui-media-box__hd_in-appmsg list-box-img'>
+            <image src='{{item.courseCover}}' class='weui-media-box__thumb'></image>
+        </view>
+        <view class='weui-media-box__bd weui-media-box__bd_in-appmsg list-box-text'>
+            <view class="weui-media-box__title text-title">{{item.courseName}}</view>
+            <view class="weui-media-box__desc text-school">
+                <text>{{item.campusName}}</text>
+            </view>
+            <view class="weui-media-box__desc text-other">
+                <text style='margin-right:17rpx;'>周期：{{item.studyCycle}}周</text>|<text style='margin-left:17rpx;'>{{item.studyCount}}人学过</text>
+            </view>
+            <view class='money'>
+                <text>分批付：</text><text>￥{{item.firstPayment}}</text>
+            </view>
+        </view>
+    </navigator>
+</template>
